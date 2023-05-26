@@ -21,5 +21,5 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }} 
       
      - name: Docker Push
-       run: docker push rabihissa/customer-microservice-docker
+       run: docker push rabihissa/customer-microservice-docker:latest
       
