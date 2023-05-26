@@ -21,7 +21,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }} 
      
      - name: Build the Docker image
-       run: docker build . --file Dockerfile --tag rabihissa/node-test:$(date +%s)
+       run: docker build -t Dockerfile
       
      - name: Docker Push
        run: docker push rabihissa/node-test
