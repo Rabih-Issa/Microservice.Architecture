@@ -22,7 +22,7 @@ jobs:
       uses: mr-smithers-excellent/docker-build-push@v6
       with:
           image: rabihissa/productmicroservice
-          dockerfile: Dockerfile
+          dockerfile: Customer.Microservice/Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           push: true
