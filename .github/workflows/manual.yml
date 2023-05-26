@@ -1,29 +1,27 @@
+
 name: Docker Image CI
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
+    branches:
+      - main
 
 jobs:
-
-  build:
-
+  build-and-push:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    - name: docker login
-      env:
-        DOCKER_USER: ${{secrets.DOCKER_USERNAME}}
-        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-      run: |
-        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
-    - name: Build the Docker image
-      run: docker build . --file Customer.Microservice/Dockerfile --tag rabihissa/customer-microservice-docker:latest
+    - uses: actions/checkout@v3
+      name: Check out code
 
-    - name: Docker Push
-      run: docker push rabihissa/customer-microservice-docker:latest
+    - uses: mr-smithers-excellent/docker-build-push@v6
+      name: Build & Push Docker image
+      with:
+        image: rabihissa/customer-microservice-docker
+        tags: v1, latest
+        registry: docker.io
+        dockerfile: Customer.Microservice/Dockerfile
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+
       
