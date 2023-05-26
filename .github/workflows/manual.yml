@@ -22,7 +22,7 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag rabihissa/node-test:$(date +%s)
+      run: docker build . --file Customer.Microservice/Dockerfile --tag rabihissa/node-test:$(date +%s)
 
     - name: Docker Push
       run: docker push rabihissa/customer-microservice-docker
