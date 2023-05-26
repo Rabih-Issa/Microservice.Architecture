@@ -24,7 +24,7 @@ jobs:
           context: "{{defaultContext}}"
           image: rabihissa/productmicroservice
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: koko
+          labels: bobo
           
  
