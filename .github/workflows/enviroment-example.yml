@@ -1,0 +1,35 @@
+name: Docker Image CI
+
+on:
+ workflow_dispatch
+
+jobs:
+  
+  DEV:
+   runs-on: ubuntu-latest
+   environment: DEV
+   steps:
+   - uses: actions/checkout@v3
+   - name: DEV Environment
+     run: |
+       echo "Hi DEV Environment"
+    
+  QA:
+   runs-on: ubuntu-latest
+   environment: QA
+   needs: DEV
+   steps:
+   - uses: actions/checkout@v3
+   - name: QA Environment
+     run: |
+       echo "Hi QA Environment"
+   
+  PROD:
+   runs-on: ubuntu-latest
+   environment: PROD
+   needs: QA
+   steps:
+   - uses: actions/checkout@v3
+   - name: PROD Environment
+     run: |
+       echo "Hi PROD Environment"
