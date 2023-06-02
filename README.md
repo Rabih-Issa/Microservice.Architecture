@@ -1,0 +1,1 @@
+[![Build and Test (.NET Core)](https://github.com/Rabih-Issa/Microservice.Architecture/actions/workflows/dotnet_build_test.yml/badge.svg)](https://github.com/Rabih-Issa/Microservice.Architecture/actions/workflows/dotnet_build_test.yml)
